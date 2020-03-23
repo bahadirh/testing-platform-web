@@ -99,6 +99,11 @@ export default {
     BIconArrowDown,
     BIconArrowUp
   },
+  head() {
+    return {
+      title: 'Create new test'
+    }
+  },
   data() {
     // TODO: complete options for actions
     return {

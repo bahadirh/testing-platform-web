@@ -9,11 +9,7 @@
         A web interface for testing mobile apps. Yay!
       </h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
+        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
           Documentation
         </a>
         <a
@@ -34,6 +30,9 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  head() {
+    return { title: 'Homepage' }
   }
 }
 </script>
