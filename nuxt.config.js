@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 export default {
   mode: 'spa',
   /*
@@ -39,9 +37,7 @@ export default {
    */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt',
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/dotenv'
+    'bootstrap-vue/nuxt'
   ],
   /*
    ** Axios module configuration
