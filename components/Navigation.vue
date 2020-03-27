@@ -10,16 +10,18 @@
       <b-navbar-nav v-if="loggedIn">
         <b-nav-item to="/apps" exact-active-class="active">Apps</b-nav-item>
         <b-nav-item to="/suites" exact-active-class="active">Suites</b-nav-item>
-        <b-nav-item to="/create-test" exact-active-class="active">Create test</b-nav-item>
+        <b-nav-item to="/create-test" exact-active-class="active">
+          Create test
+        </b-nav-item>
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto" v-if="loggedIn">
         <b-button class="mx-1" variant="success" to="/profile">
           Profile
         </b-button>
-        <b-button class="mx-1" variant="success" @click="logout"
-          >Logout</b-button
-        >
+        <b-button class="mx-1" variant="danger" @click="logout">
+          Logout
+        </b-button>
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto" v-if="!loggedIn">
@@ -39,10 +41,13 @@
           <b-button
             class="mx-1"
             @click.prevent="login"
-            variant="success"
+            variant="info"
             type="submit"
           >
             Login
+          </b-button>
+          <b-button class="mx-1" to="/signup" variant="success">
+            Signup
           </b-button>
         </b-nav-form>
       </b-navbar-nav>
@@ -52,7 +57,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import axios from '~/plugins/axios'
 
 export default {
   data() {
