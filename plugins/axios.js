@@ -1,6 +1,6 @@
 import axios from 'axios'
 
 export default axios.create({
-  baseURL: 'https://web-api.baho.ml',
+  baseURL: 'https://test-api.baho.ml',
   withCredentials: true
 })
