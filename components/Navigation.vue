@@ -4,13 +4,13 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item to="/">Home</b-nav-item>
+        <b-nav-item to="/" exact-active-class="active">Home</b-nav-item>
       </b-navbar-nav>
 
       <b-navbar-nav v-if="loggedIn">
-        <b-nav-item to="/apps">Apps</b-nav-item>
-        <b-nav-item to="/suites">Suites</b-nav-item>
-        <b-nav-item to="/create-test">Create test</b-nav-item>
+        <b-nav-item to="/apps" exact-active-class="active">Apps</b-nav-item>
+        <b-nav-item to="/suites" exact-active-class="active">Suites</b-nav-item>
+        <b-nav-item to="/create-test" exact-active-class="active">Create test</b-nav-item>
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto" v-if="loggedIn">
