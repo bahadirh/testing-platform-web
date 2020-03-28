@@ -33,6 +33,16 @@ export const actions = {
       })
   },
   logout({ commit }) {
-    commit('logout')
+    axios
+      .get('/auth/logout')
+      .then(_response => {
+        commit('logout')
+        // TODO: add vue-notification here
+        console.info('Successfully logged out.')
+      })
+      .catch(err => {
+        // TODO: add vue-notification here
+        console.error(err)
+      })
   }
 }
