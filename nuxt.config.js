@@ -40,15 +40,6 @@ export default {
     'bootstrap-vue/nuxt'
   ],
   /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {
-    credentials: true,
-    baseURL: process.env.baseURL || 'http://localhost:3000',
-    https: true
-  },
-  /*
    ** Build configuration
    */
   build: {
