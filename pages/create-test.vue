@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div
-      class="d-flex justify-content-between align-items-center my-1"
+      class="d-flex justify-content-between align-items-center"
       v-for="(step, i) in suite"
       :key="i"
     >

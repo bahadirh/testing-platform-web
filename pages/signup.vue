@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <b-row class="my-3">
+    <b-row>
       <b-col />
       <b-col cols="8" v-if="loggedIn" class="text-center h2">
         You're already signed in. Please log out first.
