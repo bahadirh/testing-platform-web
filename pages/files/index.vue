@@ -1,13 +1,13 @@
 <template>
-  <b-container fluid>
+  <b-container>
     <b-row>
       <b-col />
       <b-col cols="8">
-        <b-button class="mb-2" to="/apps/new" variant="primary">
-          Create new app
+        <b-button class="mb-2" to="/files/new" variant="primary">
+          Upload file
         </b-button>
 
-        <b-table hover stripped :items="apps" :fields="fields" />
+        <b-table hover stripped :items="files" :fields="fields" />
       </b-col>
       <b-col />
     </b-row>
@@ -15,31 +15,30 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
+import axios from '../../plugins/axios'
 
 export default {
+  middleware: 'authenticated',
   head() {
-    return { title: 'Apps' }
+    return { title: 'Files' }
   },
   async fetch() {
     await axios
-      .get('/apps/list')
+      .get('/files/list')
       .then(({ data }) => {
-        this.apps = data.apps
+        this.files = data.files
       })
       .catch(err => {
         // TODO: log error with vue-notification
         console.error(err)
       })
   },
-  middleware: 'authenticated',
   data() {
     return {
-      apps: [],
+      files: [],
       fields: [
         { key: '_id', sortable: false },
-        { key: 'name', sortable: true },
-        { key: 'version', sortable: false }
+        { key: 'name', sortable: true }
       ]
     }
   }
