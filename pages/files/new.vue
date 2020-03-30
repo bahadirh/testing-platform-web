@@ -48,8 +48,12 @@ export default {
           headers: { 'Content-Type': 'multipart/form-data' }
         })
         .then(response => {
-          console.info(response)
-          console.info(response.data)
+          // TODO: add vue-notification here
+          console.info('success!')
+        })
+        .catch(err => {
+          // TODO: add vue-notification here
+          console.info(err)
         })
     }
   }

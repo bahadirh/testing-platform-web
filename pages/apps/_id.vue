@@ -21,10 +21,9 @@
 import axios from '../../plugins/axios'
 
 export default {
-  asyncData(input) {
-    console.log(input)
+  asyncData({ route }) {
     return axios
-      .get(`/apps/${input.route.params.id}`)
+      .get(`/apps/${route.params.id}`)
       .then(({ data }) => {
         console.info('Success!')
         return {

@@ -172,7 +172,6 @@ export default {
         .then(({ data }) => {
           // TODO: use vue-notification for error and success
           console.info('success')
-          console.info(data)
         })
         .catch(err => {
           console.info(err)
