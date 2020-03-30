@@ -7,7 +7,7 @@
           Upload file
         </b-button>
 
-        <b-table hover stripped :items="files" :fields="fields" />
+        <b-table hover sticky-header stripped :items="files" :fields="fields" />
       </b-col>
       <b-col />
     </b-row>

@@ -2,12 +2,16 @@
   <b-container fluid>
     <b-row>
       <b-col />
-      <b-col cols="8">
+      <b-col cols="6">
         <b-button class="mb-2" to="/apps/new" variant="primary">
           Create new app
         </b-button>
 
-        <b-table hover stripped :items="apps" :fields="fields" />
+        <b-table hover sticky-header stripped :items="apps" :fields="fields">
+          <template v-slot:cell(name)="data">
+            <nuxt-link :to="`/apps/${data.item._id}`">{{ data.value }}</nuxt-link>
+          </template>
+        </b-table>
       </b-col>
       <b-col />
     </b-row>
@@ -37,7 +41,7 @@ export default {
     return {
       apps: [],
       fields: [
-        { key: '_id', sortable: false },
+        // { key: '_id', sortable: false },
         { key: 'name', sortable: true },
         { key: 'version', sortable: false }
       ]
