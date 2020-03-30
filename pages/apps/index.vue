@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid>
+  <b-container>
     <b-row>
       <b-col />
       <b-col cols="6">
@@ -9,7 +9,9 @@
 
         <b-table hover sticky-header stripped :items="apps" :fields="fields">
           <template v-slot:cell(name)="data">
-            <nuxt-link :to="`/apps/${data.item._id}`">{{ data.value }}</nuxt-link>
+            <nuxt-link :to="`/apps/${data.item._id}`">
+              {{ data.value }}
+            </nuxt-link>
           </template>
         </b-table>
       </b-col>
@@ -25,6 +27,18 @@ export default {
   head() {
     return { title: 'Apps' }
   },
+  middleware: 'authenticated',
+  data() {
+    return {
+      apps: [],
+      fields: [
+        // { key: '_id', sortable: false },
+        // TODO: add created_at and updated_at fields if necessary
+        { key: 'name', sortable: true },
+        { key: 'version', sortable: false }
+      ]
+    }
+  },
   async fetch() {
     await axios
       .get('/apps/list')
@@ -35,17 +49,6 @@ export default {
         // TODO: log error with vue-notification
         console.error(err)
       })
-  },
-  middleware: 'authenticated',
-  data() {
-    return {
-      apps: [],
-      fields: [
-        // { key: '_id', sortable: false },
-        { key: 'name', sortable: true },
-        { key: 'version', sortable: false }
-      ]
-    }
   }
 }
 </script>

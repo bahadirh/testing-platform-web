@@ -11,9 +11,7 @@
         <b-nav-item to="/apps">Apps</b-nav-item>
         <b-nav-item to="/suites">Suites</b-nav-item>
         <b-nav-item to="/files">Files</b-nav-item>
-        <b-nav-item to="/create-test">
-          Create test
-        </b-nav-item>
+        <b-nav-item to="/cases">Cases</b-nav-item>
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto" v-if="loggedIn">
@@ -78,7 +76,10 @@ export default {
       this.email = ''
       this.password = ''
     },
-    ...mapActions({ logout: 'auth/logout' })
+    logout() {
+      this.$store.dispatch('auth/logout')
+      this.$router.replace('/')
+    }
   }
 }
 </script>

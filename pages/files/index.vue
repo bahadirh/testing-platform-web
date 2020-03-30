@@ -2,7 +2,7 @@
   <b-container>
     <b-row>
       <b-col />
-      <b-col cols="8">
+      <b-col cols="6">
         <b-button class="mb-2" to="/files/new" variant="primary">
           Upload file
         </b-button>
@@ -37,6 +37,7 @@ export default {
     return {
       files: [],
       fields: [
+        // TODO: add created_at and updated_at fields if necessary
         { key: '_id', sortable: false },
         { key: 'name', sortable: true }
       ]
