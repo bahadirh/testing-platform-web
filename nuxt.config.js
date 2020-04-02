@@ -44,7 +44,7 @@ export default {
     '@nuxtjs/toast',
   ],
   toast: {
-    position: 'top-center',
+    position: 'bottom-right',
     register: [ // Register custom toasts
       {
         name: 'my-error',
