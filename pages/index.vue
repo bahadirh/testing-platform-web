@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div>
-      <logo />
+      <img class='landing-img' src="~/static/landing_main.svg">
       <h1 class="title">
-        testing-web
+        Testing Web
       </h1>
       <h2 class="subtitle">
         A web interface for testing mobile apps. Yay!
@@ -43,6 +43,7 @@ export default {
   font-size: 100px;
   color: #35495e;
   letter-spacing: 1px;
+  margin-top: 0.5rem;
 }
 
 .subtitle {
@@ -55,5 +56,9 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+.landing-img {
+  max-height: 50vh;
 }
 </style>
