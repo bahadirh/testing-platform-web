@@ -20,12 +20,13 @@ export const mutations = {
 }
 
 export const actions = {
-  login({ commit }, { email, password }) {
+  login({ commit }, { email, password, redirect }) {
     axios
       .post('/auth/login', { email, password })
       .then(({ data }) => {
         // TODO: add vue-notification here
         commit('login', { user: data.user })
+        redirect()
       })
       .catch(err => {
         // TODO: add vue-notification here
