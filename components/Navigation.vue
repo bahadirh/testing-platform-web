@@ -69,9 +69,13 @@ export default {
   },
   methods: {
     login() {
+      const redirect = () => {
+        this.$router.replace('/')
+      }
       this.$store.dispatch('auth/login', {
         email: this.email,
-        password: this.password
+        password: this.password,
+        redirect
       })
       this.email = ''
       this.password = ''

@@ -29,12 +29,13 @@ export const mutations = {
 // }
 
 export const actions = {
-  login({ commit }, { email, password }) {
+  login({ commit }, { email, password, redirect }) {
     axios
       .post('/auth/login', { email, password })
       .then(({ data }) => {
         this.$toast.success('Successfully authenticated', {duration: 2000})
         commit('login', { user: data.user })
+        redirect()
       })
       .catch(err => {
         this.$toast.error('Error while authenticating', {duration: 2000})
