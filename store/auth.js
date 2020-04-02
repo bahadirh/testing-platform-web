@@ -19,14 +19,6 @@ export const mutations = {
   }
 }
 
-// try {
-//   this.$toast.show('Logging in...')
-//   await this.$axios.$post('auth/login')
-//   this.$toast.success('Successfully authenticated')
-// } catch(e){
-//   this.$toast.global.my_error() //Using custom toast
-//   this.$toast.error('Error while authenticating')
-// }
 
 export const actions = {
   login({ commit }, { email, password, redirect }) {
