@@ -67,12 +67,12 @@ export default {
       axios
         .post('/auth/signup', { ...this.form })
         .then(_response => {
-          // TODO: add vue-notification here
+          this.$toast.success('Successfully signed up', {duration: 2000})
           component.form = {}
           console.info('Success!')
         })
         .catch(({ response }) => {
-          // TODO: add vue-notification here
+          this.$toast.error('Error while signing up', {duration: 2000})
           console.error(
             response.data ? response.data.message : 'Unknown error occured.'
           )
