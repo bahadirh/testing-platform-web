@@ -12,6 +12,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/toast": "^3.3.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.1.3",
     "bootstrap-vue": "^2.0.0",
