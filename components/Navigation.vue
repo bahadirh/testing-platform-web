@@ -24,25 +24,22 @@
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto" v-if="!loggedIn">
-        <b-nav-form>
+        <b-nav-form @submit.prevent="login">
           <b-form-input
             class="mx-1"
             placeholder="email"
             v-model="email"
             type="email"
+            required
           />
           <b-form-input
             class="mx-1"
             placeholder="password"
             v-model="password"
             type="password"
+            required
           />
-          <b-button
-            class="mx-1"
-            @click.prevent="login"
-            variant="info"
-            type="submit"
-          >
+          <b-button class="mx-1" variant="info" type="submit">
             Login
           </b-button>
           <b-button class="mx-1" to="/signup" variant="success">
@@ -69,20 +66,15 @@ export default {
   },
   methods: {
     login() {
-      const redirect = () => {
-        this.$router.replace('/')
-      }
       this.$store.dispatch('auth/login', {
         email: this.email,
-        password: this.password,
-        redirect
+        password: this.password
       })
       this.email = ''
       this.password = ''
     },
     logout() {
       this.$store.dispatch('auth/logout')
-      this.$router.replace('/')
     }
   }
 }
