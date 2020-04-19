@@ -111,7 +111,7 @@
 
 <script>
 import { BIconArrowDown, BIconArrowUp } from 'bootstrap-vue'
-import axios from '../../plugins/axios'
+import axios from '~/plugins/axios'
 
 export default {
   components: {
