@@ -30,7 +30,6 @@ export default {
   middleware: 'authenticated',
   data() {
     return {
-      apps: [],
       fields: [
         // { key: '_id', sortable: false },
         // TODO: add created_at and updated_at fields if necessary
@@ -39,12 +38,12 @@ export default {
       ]
     }
   },
-  async fetch() {
-    await axios
+  asyncData() {
+    return axios
       .get('/apps/list')
-      .then(({ data }) => {
-        this.apps = data.apps
-      })
+      .then(({ data }) => ({
+        apps: data.apps
+      }))
       .catch(err => {
         // TODO: log error with vue-notification
         console.error(err)
