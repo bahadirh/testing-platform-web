@@ -19,18 +19,16 @@ export const mutations = {
   }
 }
 
-
 export const actions = {
-  login({ commit }, { email, password, redirect }) {
+  login({ commit }, { email, password }) {
     axios
       .post('/auth/login', { email, password })
       .then(({ data }) => {
-        this.$toast.success('Successfully authenticated', {duration: 2000})
+        this.$toast.success('Successfully authenticated', { duration: 2000 })
         commit('login', { user: data.user })
-        redirect()
       })
       .catch(err => {
-        this.$toast.error('Error while authenticating', {duration: 2000})
+        this.$toast.error('Error while authenticating', { duration: 2000 })
         console.error(err)
       })
   },
@@ -39,11 +37,11 @@ export const actions = {
       .get('/auth/logout')
       .then(_response => {
         commit('logout')
-        this.$toast.success('Successfully logged out.', {duration: 2000})
+        this.$toast.success('Successfully logged out.', { duration: 2000 })
         console.info('Successfully logged out.')
       })
       .catch(err => {
-        this.$toast.error('Error while logging out', {duration: 2000})
+        this.$toast.error('Error while logging out', { duration: 2000 })
         console.error(err)
       })
   }
