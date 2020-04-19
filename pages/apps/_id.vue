@@ -1,7 +1,6 @@
 <template>
   <b-container>
-    <b-row>
-      <b-col />
+    <b-row class="center">
       <b-col cols="8">
         <b-row v-if="app">
           <div class="h1">{{ app.name }} details</div>
@@ -12,7 +11,6 @@
           </template>
         </b-table>
       </b-col>
-      <b-col />
     </b-row>
   </b-container>
 </template>

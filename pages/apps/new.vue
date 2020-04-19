@@ -1,8 +1,7 @@
 <template>
-  <b-container>
+  <b-container class="container-fluid">
     <b-row>
-      <b-col />
-      <b-col cols="8">
+      <b-col>
         <b-form @submit.prevent="onSubmit">
           <b-form-group id="name-group" label="Name:" label-for="name">
             <b-form-input id="name" v-model="form.name" required />
@@ -22,7 +21,6 @@
           </b-button>
         </b-form>
       </b-col>
-      <b-col />
     </b-row>
   </b-container>
 </template>

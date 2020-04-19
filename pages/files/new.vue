@@ -1,8 +1,7 @@
 <template>
-  <b-container>
+  <b-container class="container-fluid">
     <b-row>
-      <b-col />
-      <b-col cols="8">
+      <b-col>
         <b-form id="fileForm" @submit.prevent="onSubmit">
           <b-form-group
             id="file-group"
@@ -22,7 +21,6 @@
           </b-button>
         </b-form>
       </b-col>
-      <b-col />
     </b-row>
   </b-container>
 </template>

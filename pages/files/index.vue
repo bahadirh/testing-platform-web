@@ -1,15 +1,13 @@
 <template>
-  <b-container>
+  <b-container class="container-fluid">
     <b-row>
-      <b-col />
-      <b-col cols="6">
+      <b-col>
         <b-button class="mb-2" to="/files/new" variant="primary">
           Upload file
         </b-button>
 
         <b-table hover sticky-header stripped :items="files" :fields="fields" />
       </b-col>
-      <b-col />
     </b-row>
   </b-container>
 </template>

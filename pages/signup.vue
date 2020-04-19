@@ -1,11 +1,10 @@
 <template>
-  <b-container>
-    <b-row>
-      <b-col />
-      <b-col cols="8" v-if="loggedIn" class="text-center h2">
+  <b-container class="container-fluid">
+    <b-row class="center">
+      <b-col v-if="loggedIn" class="text-center h2">
         You're already signed in. Please log out first.
       </b-col>
-      <b-col cols="8" v-else>
+      <b-col v-else>
         <b-form @submit.prevent="onSubmit">
           <b-form-group id="name-group" label="Name:" label-for="name">
             <b-form-input id="name" v-model="form.firstName" required />
@@ -40,7 +39,6 @@
           <b-button type="submit" variant="primary">Submit</b-button>
         </b-form>
       </b-col>
-      <b-col />
     </b-row>
   </b-container>
 </template>
@@ -67,12 +65,12 @@ export default {
       axios
         .post('/auth/signup', { ...this.form })
         .then(_response => {
-          this.$toast.success('Successfully signed up', {duration: 2000})
+          this.$toast.success('Successfully signed up', { duration: 2000 })
           component.form = {}
           console.info('Success!')
         })
         .catch(({ response }) => {
-          this.$toast.error('Error while signing up', {duration: 2000})
+          this.$toast.error('Error while signing up', { duration: 2000 })
           console.error(
             response.data ? response.data.message : 'Unknown error occured.'
           )

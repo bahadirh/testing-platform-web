@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navigation />
-    <nuxt class="my-1"/>
+    <nuxt class="my-1" />
   </div>
 </template>
 

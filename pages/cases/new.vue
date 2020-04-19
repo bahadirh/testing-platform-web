@@ -1,8 +1,7 @@
 <template>
-  <div class="container">
+  <b-container class="container-fluid">
     <b-row>
-      <b-col />
-      <b-col cols="10">
+      <b-col>
         <b-form @submit.prevent="onSubmit">
           <b-form-group id="name-group" label="Name:" label-for="name">
             <b-form-input id="name" v-model="name" required />
@@ -104,9 +103,8 @@
           </div>
         </b-form>
       </b-col>
-      <b-col />
     </b-row>
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -172,6 +170,7 @@ export default {
         .then(({ data }) => {
           // TODO: use vue-notification for error and success
           console.info('success')
+          this.$router.replace('/cases')
         })
         .catch(err => {
           console.info(err)

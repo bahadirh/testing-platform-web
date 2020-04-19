@@ -1,8 +1,7 @@
 <template>
-  <b-container>
+  <b-container class="container-fluid">
     <b-row>
-      <b-col />
-      <b-col cols="6">
+      <b-col>
         <b-button class="mb-2" to="/apps/new" variant="primary">
           Create new app
         </b-button>
@@ -15,7 +14,6 @@
           </template>
         </b-table>
       </b-col>
-      <b-col />
     </b-row>
   </b-container>
 </template>
