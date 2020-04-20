@@ -14,18 +14,18 @@
   "dependencies": {
     "@nuxtjs/toast": "^3.3.0",
     "axios": "^0.19.2",
-    "bootstrap": "^4.1.3",
-    "bootstrap-vue": "^2.0.0",
-    "nuxt": "^2.0.0",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.11.0",
+    "nuxt": "^2.12.2",
     "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/test-utils": "^1.0.0-beta.27",
-    "babel-jest": "^24.1.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "jest": "^24.1.0",
-    "prettier": "^1.19.1",
-    "vue-jest": "^4.0.0-0"
+    "@vue/test-utils": "^1.0.0-beta.33",
+    "babel-jest": "^25.4.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.3",
+    "jest": "^25.3.0",
+    "prettier": "^2.0.4",
+    "vue-jest": "^3.0.5"
   }
 }
