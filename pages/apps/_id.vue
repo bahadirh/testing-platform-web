@@ -17,19 +17,19 @@
 
 <script>
 export default {
-  asyncData({ route, $axios }) {
+  asyncData({ route, $axios, $toast }) {
     return $axios
       .$get(`/apps/${route.params.id}`)
       .then(data => {
-        console.info('Success!')
         return {
           app: data.app,
           title: `${data.app.name} details`,
         }
       })
       .catch(err => {
-        // TODO: vue-notification here
-        console.info(err)
+        this.$toast.error('Something bad happened when loading that page.', {
+          duration: 2000,
+        })
         return {}
       })
   },

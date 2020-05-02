@@ -59,12 +59,18 @@ export default {
       this.$axios
         .$post('/suites/new', { ...this.form })
         .then(_data => {
-          // TODO: use vue-notification here
-          console.info(`Success!`)
+          this.$toast.success('Successfully created the new test suite!', {
+            duration: 2000,
+          })
           this.$router.replace('/suites')
         })
         .catch(err => {
-          //TODO: use vue-notification to log error
+          this.$toast.error(
+            'Something bad happened when creating test suite.',
+            {
+              duration: 2000,
+            }
+          )
           console.error(err)
         })
     },

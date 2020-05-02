@@ -36,7 +36,6 @@ export const actions = {
       .then(_response => {
         commit('logout')
         this.$toast.success('Successfully logged out.', { duration: 2000 })
-        console.info('Successfully logged out.')
       })
       .catch(err => {
         this.$toast.error('Error while logging out', { duration: 2000 })

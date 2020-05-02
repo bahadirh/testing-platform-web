@@ -21,15 +21,13 @@ export default {
     return $axios
       .$get(`/suites/${route.params.id}`)
       .then(data => {
-        console.info('Success!')
         return {
           suite: data.suite,
           title: `${data.suite.name} details`,
         }
       })
       .catch(err => {
-        // TODO: vue-notification here
-        console.info(err)
+        console.error(err)
         return {}
       })
   },

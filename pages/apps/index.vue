@@ -34,14 +34,16 @@ export default {
       ],
     }
   },
-  asyncData({ $axios }) {
+  asyncData({ $axios, $toast }) {
     return $axios
       .$get('/apps/list')
       .then(data => ({
         apps: data.apps,
       }))
       .catch(err => {
-        // TODO: log error with vue-notification
+        $toast.error('Something bad happened when loading that page.', {
+          duration: 2000,
+        })
         console.error(err)
       })
   },

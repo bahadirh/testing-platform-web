@@ -167,12 +167,16 @@ export default {
       this.$axios
         .$post('/cases/new', { name: this.name, sequence: this.suite })
         .then(data => {
-          // TODO: use vue-notification for error and success
-          console.info('success')
+          this.$toast.success('Successfully created the new test case!', {
+            duration: 2000,
+          })
           this.$router.replace('/cases')
         })
         .catch(err => {
-          console.info(err)
+          this.$toast.error('Something bad happened when creating test case.', {
+            duration: 2000,
+          })
+          console.error(err)
         })
     },
   },

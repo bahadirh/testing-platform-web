@@ -39,12 +39,15 @@ export default {
       this.$axios
         .$post('/apps/new', { ...this.form })
         .then(data => {
-          // TODO: use vue-notification here
-          console.info(`Success!`)
+          this.$toast.success('Successfully created the new app!', {
+            duration: 2000,
+          })
           this.$router.replace('/apps')
         })
         .catch(err => {
-          //TODO: use vue-notification to log error
+          this.$toast.error('Something bad happened when creating app.', {
+            duration: 2000,
+          })
           console.error(err)
         })
     },

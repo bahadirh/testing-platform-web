@@ -47,7 +47,6 @@ export default {
         }
       })
       .catch(err => {
-        // TODO: log error with vue-notification
         console.error(err)
       })
   },

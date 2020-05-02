@@ -44,12 +44,15 @@ export default {
           headers: { 'Content-Type': 'multipart/form-data' },
         })
         .then(response => {
-          // TODO: add vue-notification here
-          console.info('success!')
+          this.$toast.success('Successfully uploaded the file!', {
+            duration: 2000,
+          })
         })
         .catch(err => {
-          // TODO: add vue-notification here
-          console.info(err)
+          this.$toast.error('Something bad happened when uploading the file.', {
+            duration: 2000,
+          })
+          console.error(err)
         })
     },
   },

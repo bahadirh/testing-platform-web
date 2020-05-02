@@ -66,7 +66,6 @@ export default {
         .then(_response => {
           this.$toast.success('Successfully signed up', { duration: 2000 })
           component.form = {}
-          console.info('Success!')
         })
         .catch(({ response }) => {
           this.$toast.error('Error while signing up', { duration: 2000 })
