@@ -12,15 +12,15 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxtjs/toast": "^3.3.0",
-    "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.11.0",
     "nuxt": "^2.12.2",
     "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {
+    "@nuxtjs/axios": "^5.10.3",
     "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/toast": "^3.3.0",
     "@vue/test-utils": "^1.0.0-beta.33",
     "babel-jest": "^25.4.0",
     "eslint-config-prettier": "^6.10.1",

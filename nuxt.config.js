@@ -45,7 +45,12 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     '@nuxtjs/toast',
+    '@nuxtjs/axios',
   ],
+  axios: {
+    baseURL: process.env.APIBaseURL || 'http://localhost:3000',
+    credentials: true,
+  },
   toast: {
     position: 'bottom-right',
     register: [

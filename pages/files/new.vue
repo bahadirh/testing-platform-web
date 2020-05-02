@@ -26,8 +26,6 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-
 export default {
   middleware: 'authenticated',
   head() {
@@ -41,9 +39,9 @@ export default {
       const formData = new FormData()
       formData.append('file', this.file)
 
-      axios
-        .post('/files/upload', formData, {
-          headers: { 'Content-Type': 'multipart/form-data' }
+      this.$axios
+        .$post('/files/upload', formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
         })
         .then(response => {
           // TODO: add vue-notification here
@@ -53,7 +51,7 @@ export default {
           // TODO: add vue-notification here
           console.info(err)
         })
-    }
-  }
+    },
+  },
 }
 </script>

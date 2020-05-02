@@ -26,24 +26,21 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-
 export default {
   middleware: 'authenticated',
-  asyncData() {
-    return axios
-      .get('/apps/list')
-      .then(({ data }) => {
-        console.info(data.apps)
-        const appOptions = data.apps.map(app => ({
+  asyncData({ $axios }) {
+    return $axios
+      .$get('/apps/list')
+      .then(({ apps }) => {
+        const appOptions = apps.map(app => ({
           value: app._id,
-          text: app.name
+          text: app.name,
         }))
         return {
           appOptions: [
             { value: null, text: 'Please select an option' },
-            ...appOptions
-          ]
+            ...appOptions,
+          ],
         }
       })
       .catch(err => {
@@ -59,9 +56,9 @@ export default {
   },
   methods: {
     onSubmit() {
-      axios
-        .post('/suites/new', { ...this.form })
-        .then(({ data }) => {
+      this.$axios
+        .$post('/suites/new', { ...this.form })
+        .then(_data => {
           // TODO: use vue-notification here
           console.info(`Success!`)
           this.$router.replace('/suites')
@@ -70,7 +67,7 @@ export default {
           //TODO: use vue-notification to log error
           console.error(err)
         })
-    }
-  }
+    },
+  },
 }
 </script>

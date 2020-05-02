@@ -19,8 +19,6 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-
 export default {
   head() {
     return { title: 'Apps' }
@@ -32,20 +30,20 @@ export default {
         // { key: '_id', sortable: false },
         // TODO: add created_at and updated_at fields if necessary
         { key: 'name', sortable: true },
-        { key: 'version', sortable: false }
-      ]
+        { key: 'version', sortable: false },
+      ],
     }
   },
-  asyncData() {
-    return axios
-      .get('/apps/list')
-      .then(({ data }) => ({
-        apps: data.apps
+  asyncData({ $axios }) {
+    return $axios
+      .$get('/apps/list')
+      .then(data => ({
+        apps: data.apps,
       }))
       .catch(err => {
         // TODO: log error with vue-notification
         console.error(err)
       })
-  }
+  },
 }
 </script>

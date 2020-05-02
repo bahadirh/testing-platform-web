@@ -1,13 +1,11 @@
-import axios from '~/plugins/axios'
-
 export const state = () => ({
-  user: false
+  user: false,
 })
 
 export const getters = {
   loggedIn(state) {
     return state.user != false
-  }
+  },
 }
 
 export const mutations = {
@@ -16,16 +14,16 @@ export const mutations = {
   },
   logout(state) {
     state.user = false
-  }
+  },
 }
 
 export const actions = {
   login({ commit }, { email, password }) {
-    axios
-      .post('/auth/login', { email, password })
-      .then(({ data }) => {
+    this.$axios
+      .$post('/auth/login', { email, password })
+      .then(({ user }) => {
         this.$toast.success('Successfully authenticated', { duration: 2000 })
-        commit('login', { user: data.user })
+        commit('login', { user })
       })
       .catch(err => {
         this.$toast.error('Error while authenticating', { duration: 2000 })
@@ -33,8 +31,8 @@ export const actions = {
       })
   },
   logout({ commit }) {
-    axios
-      .get('/auth/logout')
+    this.$axios
+      .$get('/auth/logout')
       .then(_response => {
         commit('logout')
         this.$toast.success('Successfully logged out.', { duration: 2000 })
@@ -44,5 +42,5 @@ export const actions = {
         this.$toast.error('Error while logging out', { duration: 2000 })
         console.error(err)
       })
-  }
+  },
 }

@@ -25,8 +25,6 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-
 export default {
   head() {
     return { title: 'Suites' }
@@ -36,22 +34,22 @@ export default {
     return {
       fields: [
         { key: 'name', sortable: true },
-        { key: 'app', sortable: true }
-      ]
+        { key: 'app', sortable: true },
+      ],
     }
   },
-  asyncData() {
-    return axios
-      .get('/suites/list')
-      .then(({ data }) => {
+  asyncData({ $axios }) {
+    return $axios
+      .$get('/suites/list')
+      .then(({ suites }) => {
         return {
-          suites: data.suites
+          suites,
         }
       })
       .catch(err => {
         // TODO: log error with vue-notification
         console.error(err)
       })
-  }
+  },
 }
 </script>

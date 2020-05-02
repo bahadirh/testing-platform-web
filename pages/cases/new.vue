@@ -109,16 +109,15 @@
 
 <script>
 import { BIconArrowDown, BIconArrowUp } from 'bootstrap-vue'
-import axios from '~/plugins/axios'
 
 export default {
   components: {
     BIconArrowDown,
-    BIconArrowUp
+    BIconArrowUp,
   },
   head() {
     return {
-      title: 'Create new case'
+      title: 'Create new case',
     }
   },
   data() {
@@ -136,13 +135,13 @@ export default {
         acceptAlert: [],
         dismissAlert: [],
         getGeoLocation: [],
-        setGeoLocation: ['altitude', 'latitude', 'longitude']
+        setGeoLocation: ['altitude', 'latitude', 'longitude'],
       },
       actions: [
         { text: '', value: undefined },
         {
           text: 'Click an element',
-          value: 'clickElement'
+          value: 'clickElement',
         },
         { text: 'Set value of an element', value: 'setValue' },
         { text: 'Get page source', value: 'getPageSource' },
@@ -151,9 +150,9 @@ export default {
         { text: 'Accept alert', value: 'acceptAlert' },
         { text: 'Dismiss alert', value: 'dismissAlert' },
         { text: 'Set geolocation', value: 'setGeoLocation' },
-        { text: 'Get geolocation', value: 'getGeoLocation' }
+        { text: 'Get geolocation', value: 'getGeoLocation' },
       ],
-      suite: [{}]
+      suite: [{}],
     }
   },
   computed: {},
@@ -165,9 +164,9 @@ export default {
       this.$forceUpdate()
     },
     onSubmit() {
-      axios
-        .post('/cases/new', { name: this.name, sequence: this.suite })
-        .then(({ data }) => {
+      this.$axios
+        .$post('/cases/new', { name: this.name, sequence: this.suite })
+        .then(data => {
           // TODO: use vue-notification for error and success
           console.info('success')
           this.$router.replace('/cases')
@@ -175,8 +174,8 @@ export default {
         .catch(err => {
           console.info(err)
         })
-    }
+    },
   },
-  watch: {}
+  watch: {},
 }
 </script>

@@ -26,8 +26,6 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-
 export default {
   middleware: 'authenticated',
   data() {
@@ -38,9 +36,9 @@ export default {
   },
   methods: {
     onSubmit() {
-      axios
-        .post('/apps/new', { ...this.form })
-        .then(({ data }) => {
+      this.$axios
+        .$post('/apps/new', { ...this.form })
+        .then(data => {
           // TODO: use vue-notification here
           console.info(`Success!`)
           this.$router.replace('/apps')
@@ -49,7 +47,7 @@ export default {
           //TODO: use vue-notification to log error
           console.error(err)
         })
-    }
-  }
+    },
+  },
 }
 </script>

@@ -16,17 +16,15 @@
 </template>
 
 <script>
-import axios from '../../plugins/axios'
-
 export default {
-  asyncData({ route }) {
-    return axios
-      .get(`/suites/${route.params.id}`)
-      .then(({ data }) => {
+  asyncData({ route, $axios }) {
+    return $axios
+      .$get(`/suites/${route.params.id}`)
+      .then(data => {
         console.info('Success!')
         return {
           suite: data.suite,
-          title: `${data.suite.name} details`
+          title: `${data.suite.name} details`,
         }
       })
       .catch(err => {
@@ -40,6 +38,6 @@ export default {
   },
   data() {
     return {}
-  }
+  },
 }
 </script>

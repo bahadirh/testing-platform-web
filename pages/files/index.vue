@@ -13,22 +13,20 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-
 export default {
   middleware: 'authenticated',
   head() {
     return { title: 'Files' }
   },
-  async fetch() {
-    await axios
-      .get('/files/list')
-      .then(({ data }) => {
-        this.files = data.files
+  asyncData({ $axios }) {
+    return $axios
+      .$get('/files/list')
+      .then(({ files }) => {
+        return { files }
       })
       .catch(err => {
-        // TODO: log error with vue-notification
         console.error(err)
+        return {}
       })
   },
   data() {
@@ -37,9 +35,9 @@ export default {
       fields: [
         // TODO: add created_at and updated_at fields if necessary
         { key: '_id', sortable: false },
-        { key: 'name', sortable: true }
-      ]
+        { key: 'name', sortable: true },
+      ],
     }
-  }
+  },
 }
 </script>

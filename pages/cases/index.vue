@@ -13,17 +13,15 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-
 export default {
   middleware: 'authenticated',
   head() {
     return { title: 'Cases' }
   },
-  asyncData() {
-    return axios
-      .get('/cases/list')
-      .then(({ data }) => {
+  asyncData({ $axios }) {
+    return $axios
+      .$get('/cases/list')
+      .then(data => {
         return { cases: data.cases }
       })
       .catch(error => {
@@ -33,6 +31,6 @@ export default {
   },
   data() {
     return {}
-  }
+  },
 }
 </script>

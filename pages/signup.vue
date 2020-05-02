@@ -45,25 +45,24 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import axios from '~/plugins/axios'
 
 export default {
   head: {
-    title: 'Signup'
+    title: 'Signup',
   },
   data() {
     return {
-      form: {}
+      form: {},
     }
   },
   computed: {
-    ...mapGetters({ loggedIn: 'auth/loggedIn' })
+    ...mapGetters({ loggedIn: 'auth/loggedIn' }),
   },
   methods: {
     onSubmit() {
       const component = this
-      axios
-        .post('/auth/signup', { ...this.form })
+      this.$axios
+        .$post('/auth/signup', { ...this.form })
         .then(_response => {
           this.$toast.success('Successfully signed up', { duration: 2000 })
           component.form = {}
@@ -75,7 +74,7 @@ export default {
             response.data ? response.data.message : 'Unknown error occured.'
           )
         })
-    }
-  }
+    },
+  },
 }
 </script>
