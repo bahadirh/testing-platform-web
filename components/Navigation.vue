@@ -9,6 +9,7 @@
 
       <b-navbar-nav v-if="loggedIn">
         <b-nav-item to="/apps">Apps</b-nav-item>
+        <b-nav-item to="/tests">Tests</b-nav-item>
         <b-nav-item to="/suites">Suites</b-nav-item>
         <b-nav-item to="/files">Files</b-nav-item>
         <b-nav-item to="/cases">Cases</b-nav-item>

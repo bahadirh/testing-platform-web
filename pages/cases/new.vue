@@ -125,17 +125,18 @@ export default {
     return {
       name: '',
       newAction: {},
-      elementSelectionOptions: ['name', 'xpath', 'text'],
+      elementSelectionOptions: ['name', 'xpath', 'text', 'className'],
       options: {
+        acceptAlert: [],
+        assertTextEqualsTo: ['selectElementBy', 'elementSelector', 'value'],
         clickElement: ['selectElementBy', 'elementSelector'],
-        setValue: ['selectElementBy', 'elementSelector', 'value'],
+        dismissAlert: [],
+        getGeoLocation: [],
         getPageSource: [],
         move: ['x', 'y'],
         pause: ['milliseconds'],
-        acceptAlert: [],
-        dismissAlert: [],
-        getGeoLocation: [],
         setGeoLocation: ['altitude', 'latitude', 'longitude'],
+        setValue: ['selectElementBy', 'elementSelector', 'value'],
       },
       actions: [
         { text: '', value: undefined },
@@ -151,6 +152,7 @@ export default {
         { text: 'Dismiss alert', value: 'dismissAlert' },
         { text: 'Set geolocation', value: 'setGeoLocation' },
         { text: 'Get geolocation', value: 'getGeoLocation' },
+        { text: 'Assert element text', value: 'assertTextEqualsTo' },
       ],
       suite: [{}],
     }
