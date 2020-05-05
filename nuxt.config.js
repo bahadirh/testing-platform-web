@@ -48,7 +48,7 @@ export default {
     '@nuxtjs/axios',
   ],
   axios: {
-    baseURL: process.env.APIBaseURL || 'http://localhost:3000',
+    baseURL: 'https://web-api.dolma.ml',
     credentials: true,
   },
   toast: {
