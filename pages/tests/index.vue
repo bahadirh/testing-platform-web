@@ -7,10 +7,28 @@
         </b-button>
 
         <b-table hover sticky-header stripped :items="tests">
+          <template v-slot:cell(_id)="data">
+            <nuxt-link :to="`/tests/${data.item._id}`">
+              {{ data.value }}
+            </nuxt-link>
+          </template>
+
           <template v-slot:cell(createdAt)="data">
             <nuxt-link :to="`/tests/${data.item._id}`">
               {{ data.value }}
             </nuxt-link>
+          </template>
+
+          <template v-slot:cell(testCase)="data">
+            <!-- <nuxt-link :to="`/cases/${data.item.testCase._id}`"> -->
+            {{ data.value.name }}
+            <!-- </nuxt-link> -->
+          </template>
+
+          <template v-slot:cell(buildFile)="data">
+            <!-- <nuxt-link :to="`/files/${data.item.buildFile._id}`"> -->
+            {{ data.value.name }}
+            <!-- </nuxt-link> -->
           </template>
         </b-table>
       </b-col>
