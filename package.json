@@ -1,6 +1,9 @@
 {
   "name": "testing-web",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=12.x"
+  },
   "description": "A web interface for testing mobile apps. Yay!",
   "author": "Bahadir Hocamoglu",
   "private": true,
