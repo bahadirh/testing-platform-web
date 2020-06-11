@@ -19,6 +19,7 @@
             </nuxt-link>
           </template>
 
+
           <template v-slot:cell(testCase)="data">
             <!-- <nuxt-link :to="`/cases/${data.item.testCase._id}`"> -->
             {{ data.value.name }}

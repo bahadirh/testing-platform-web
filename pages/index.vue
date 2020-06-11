@@ -1,13 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <img class='landing-img' src="~/static/landing_main.svg">
-      <h1 class="title">
-        Testing Web
-      </h1>
-      <h2 class="subtitle">
-        A web interface for testing mobile apps. Yay!
-      </h2>
+      <img class="landing-img" src="~/static/landing_main.svg" />
     </div>
   </div>
 </template>
@@ -17,11 +11,11 @@ import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
-    Logo
+    Logo,
   },
   head() {
     return { title: 'Homepage' }
-  }
+  },
 }
 </script>
 

@@ -8,9 +8,9 @@
       </b-navbar-nav>
 
       <b-navbar-nav v-if="loggedIn">
-        <b-nav-item to="/apps">Apps</b-nav-item>
+        <!-- <b-nav-item to="/apps">Apps</b-nav-item> -->
         <b-nav-item to="/tests">Tests</b-nav-item>
-        <b-nav-item to="/suites">Suites</b-nav-item>
+        <!-- <b-nav-item to="/suites">Suites</b-nav-item> -->
         <b-nav-item to="/files">Files</b-nav-item>
         <b-nav-item to="/cases">Cases</b-nav-item>
       </b-navbar-nav>
@@ -59,24 +59,24 @@ export default {
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
     }
   },
   computed: {
-    ...mapGetters({ loggedIn: 'auth/loggedIn' })
+    ...mapGetters({ loggedIn: 'auth/loggedIn' }),
   },
   methods: {
     login() {
       this.$store.dispatch('auth/login', {
         email: this.email,
-        password: this.password
+        password: this.password,
       })
       this.email = ''
       this.password = ''
     },
     logout() {
       this.$store.dispatch('auth/logout')
-    }
-  }
+    },
+  },
 }
 </script>
