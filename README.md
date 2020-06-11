@@ -34,7 +34,7 @@ $ yarn install
 
 The app requires one environment variable, `APIBaseURL`, supplied when targeting either development or production. It's default value is `http://localhost:3000/`. Below is a sample `.env` file content.
 
-```env
+``` env
 APIBaseURL="https://api.mydomain.tld"
 ```
 
