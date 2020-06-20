@@ -20,7 +20,10 @@
       </b-col>
     </b-row>
 
-    <b-row align-content="between">
+    <b-row
+      v-if="test.status == 'Done' || test.status == 'Error'"
+      align-content="between"
+    >
       <b-col />
       <b-col cols="4">
         <b-carousel indicators controls fade :interval="0">
