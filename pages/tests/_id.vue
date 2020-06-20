@@ -5,12 +5,34 @@
         <b-row v-if="test">
           <div class="h1">{{ title }}</div>
         </b-row>
-        <b-table hover stacked stripped :items="[test]">
-          <template v-slot:cell(files)="files">
-            {{ files.value }}
-          </template>
-        </b-table>
+        <b-table
+          hover
+          stacked
+          stripped
+          :items="[
+            {
+              _id: test._id,
+              platformVersion: test.platformVersion,
+              status: test.status,
+            },
+          ]"
+        />
       </b-col>
+    </b-row>
+
+    <b-row align-content="between">
+      <b-col />
+      <b-col cols="4">
+        <b-carousel indicators controls fade :interval="0">
+          <b-carousel-slide
+            v-for="i in test.result.state.length"
+            :img-src="`${$axios.defaults.baseURL}/screenshots/${test._id}/${i}`"
+            :key="i"
+            :caption="`Step ${i}`"
+          />
+        </b-carousel>
+      </b-col>
+      <b-col />
     </b-row>
   </b-container>
 </template>
@@ -23,7 +45,7 @@ export default {
       .then(data => {
         return {
           test: data.test,
-          title: `Test #${data.test._id} details`,
+          title: `Test details`,
         }
       })
       .catch(err => {
