@@ -117,6 +117,7 @@ export default {
         dismissAlert: [],
         getGeoLocation: [],
         getPageSource: [],
+        hideKeyboard: [],
         lockDevice: ['seconds'],
         move: ['x', 'y'],
         pause: ['milliseconds'],
@@ -142,6 +143,7 @@ export default {
         { text: 'Set geolocation', value: 'setGeoLocation' },
         { text: 'Get geolocation', value: 'getGeoLocation' },
         { text: 'Assert element text', value: 'assertTextEqualsTo' },
+        { text: 'Hide keyboard', value: 'hideKeyboard' },
       ],
       suite: [{}],
     }
