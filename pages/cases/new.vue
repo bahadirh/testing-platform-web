@@ -14,11 +14,8 @@
               :key="i"
             >
               <div>
-                <b-form-select
-                  :options="actions"
-                  v-model="step.action"
-                  :disabled="step.action != undefined"
-                />
+                <b-form-select :options="actions" v-model="step.action" />
+                <!-- :disabled="step.action != undefined" -->
               </div>
 
               <div v-for="(field, j) in options[step.action]" :key="j">
@@ -35,6 +32,7 @@
                 <b-form-input
                   v-else-if="field == 'value'"
                   v-model="step.value"
+                  placeholder="value"
                 />
                 <b-form-input
                   v-else-if="field == 'x'"
@@ -47,24 +45,9 @@
                   placeholder="y coord"
                 />
                 <b-form-input
-                  v-else-if="field == 'milliseconds'"
-                  v-model.number="step.milliseconds"
-                  placeholder="in milliseconds"
-                />
-                <b-form-input
-                  v-else-if="field == 'altitude'"
-                  v-model.number="step.altitude"
-                  placeholder="altitude"
-                />
-                <b-form-input
-                  v-else-if="field == 'latitude'"
-                  v-model.number="step.latitude"
-                  placeholder="latitude"
-                />
-                <b-form-input
-                  v-else-if="field == 'longitude'"
-                  v-model.number="step.longitude"
-                  placeholder="longitude"
+                  v-else
+                  v-model.number="step[field]"
+                  :placeholder="field"
                 />
               </div>
               <div>
@@ -129,14 +112,17 @@ export default {
       options: {
         acceptAlert: [],
         assertTextEqualsTo: ['selectElementBy', 'elementSelector', 'value'],
+        back: [],
         clickElement: ['selectElementBy', 'elementSelector'],
         dismissAlert: [],
         getGeoLocation: [],
         getPageSource: [],
+        lockDevice: ['seconds'],
         move: ['x', 'y'],
         pause: ['milliseconds'],
         setGeoLocation: ['altitude', 'latitude', 'longitude'],
         setValue: ['selectElementBy', 'elementSelector', 'value'],
+        unlockDevice: [],
       },
       actions: [
         { text: '', value: undefined },
@@ -146,6 +132,9 @@ export default {
         },
         { text: 'Set value of an element', value: 'setValue' },
         { text: 'Get page source', value: 'getPageSource' },
+        { text: 'Go back', value: 'back' },
+        { text: 'Lock device', value: 'lockDevice' },
+        { text: 'Unlock device', value: 'unlockDevice' },
         { text: 'Move', value: 'move' },
         { text: 'Pause test', value: 'pause' },
         { text: 'Accept alert', value: 'acceptAlert' },
